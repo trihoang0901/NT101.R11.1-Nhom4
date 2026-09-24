@@ -1,0 +1,44 @@
+Word frequency
+Total words: 814
+
+Rank  Word        Count  Length  Percent
+1     LMW         51     3       6.27%
+2     GHV         39     3       4.79%
+3     L           24     1       2.95%
+4     ZD          24     2       2.95%
+5     RM          15     2       1.84%
+6     GZ          13     2       1.60%
+7     IVSVLIXH    13     8       1.60%
+8     URGH        13     4       1.60%
+9     FMREVISRGB  12     10      1.47%
+10    LS          11     2       1.35%
+11    EMF         10     3       1.23%
+12    HXN         10     3       1.23%
+13    RGS         10     3       1.23%
+14    RS          9      2       1.11%
+15    ZM          8      2       0.98%
+16    GHLG        7      4       0.86%
+17    HLIIB       7      5       0.86%
+18    ERVGMLN     6      7       0.74%
+19    S           6      1       0.74%
+20    SVIRVS      6      6       0.74%
+21    DZI         5      3       0.61%
+22    KZGGVI      5      6       0.61%
+23    LOSZ        5      4       0.61%
+24    RG          5      2       0.61%
+25    TOZYLO      5      6       0.61%
+26    HLS         4      3       0.49%
+27    HRS         4      3       0.49%
+28    HV          4      2       0.49%
+29    LIV         4      3       0.49%
+30    NLTRXLO     4      7       0.49%
+31    RMMZELGRZM  4      10      0.49%
+32    SZXRLO      4      6       0.49%
+33    WVEVOZKNVMG 4      11      0.49%
+34    DLXFOGB     3      7       0.37%
+35    GVXHMZOZTB  3      10      0.37%
+36    HZ          3      2       0.37%
+37    LXLWVNRX    3      8       0.37%
+38    MLGRZMLO    3      8       0.37%
+39    NRMH        3      4       0.37%
+40    NZIV        3      4       0.37%

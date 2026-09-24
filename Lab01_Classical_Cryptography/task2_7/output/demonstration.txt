@@ -1,0 +1,20 @@
+Plaintext: DCODEZIGZAG
+Rails: 3
+Ciphertext: DEZCDZGAOIG
+Decrypted: DCODEZIGZAG
+Result: PASS
+
+Plaintext: WE ARE DISCOVERED. FLEE AT ONCE
+Rails: 3
+Ciphertext: WRIVDLANEAEDSOEE.FE TOC  CR E E
+Decrypted: WE ARE DISCOVERED. FLEE AT ONCE
+Result: PASS
+
+Plaintext: Room 12, bring key #7 at 09:30.
+Rails: 4
+Ciphertext: R2n  .o1,igy#t00o  r e7a93mbk :
+Decrypted: Room 12, bring key #7 at 09:30.
+Result: PASS
+
+Overall: PASS
+Compare manually at https://www.dcode.fr/rail-fence-cipher

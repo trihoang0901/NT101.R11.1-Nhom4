@@ -1,0 +1,34 @@
+Trigram frequency
+Total 3-grams: 4574
+
+Rank  Gram  Count  Percent
+1     LMW   54     1.18%
+2     GHV   49     1.07%
+3     RMT   37     0.81%
+4     RZM   35     0.77%
+5     VMG   30     0.66%
+6     GRZ   28     0.61%
+7     VIS   25     0.55%
+8     LGR   23     0.50%
+9     EVI   21     0.46%
+10    IVS   21     0.46%
+11    RVS   21     0.46%
+12    VSV   21     0.46%
+13    SLM   20     0.44%
+14    GVI   19     0.42%
+15    REV   19     0.42%
+16    RGB   19     0.42%
+17    VLI   19     0.42%
+18    SRG   18     0.39%
+19    FMR   17     0.37%
+20    SGH   17     0.37%
+21    KIZ   16     0.35%
+22    SRM   16     0.35%
+23    VIR   16     0.35%
+24    ISR   15     0.33%
+25    LIX   15     0.33%
+26    RGH   15     0.33%
+27    SVL   15     0.33%
+28    VSG   15     0.33%
+29    VSS   15     0.33%
+30    WRM   15     0.33%

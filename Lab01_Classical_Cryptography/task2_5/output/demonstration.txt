@@ -1,0 +1,17 @@
+Word count: 144
+Key: SECURITY
+
+Plaintext:
+Classical cryptography studies ways to hide a written message before modern computers existed. A cipher turns readable plaintext into ciphertext. The receiver applies a secret key and recovers the original text. A substitution cipher replaces letters, while a transposition cipher keeps the letters and changes their order. The Caesar cipher shifts every letter by one fixed amount. The Vigenere cipher repeats a keyword, so one plaintext letter can become several ciphertext letters. That property makes a single frequency count less effective than it is against a monoalphabetic cipher. Students still practice these systems because the same ideas return in network security: keys, confusion, diffusion, and the rule that the method may be public while the key stays secret. This sample paragraph is original lab text. The program encrypts it with the keyword SECURITY, decrypts the result, and checks that the wording comes back unchanged.
+
+Ciphertext:
+Upcmjqvyd gtsgbhejerbp amsvmgm nirq ls jcum t ujmvnvv fckwcav jxdgvg gflxpf gqggcmcjw grzamcv. E ecgpxp lythj zxyvedfv xeyarvyob blls ecgpxplizn. Kpx pwggcmmk yhtncva t qwgtyk sxw srf lvkhtwvu nym hpakkhrt mcpx. C mljlraxwnzwg aatjyi zxndeeyj txrlitm, npbjw e vlrvlngwknzwg aatjyi sxchw vbv txrlitm rvw azepava mfwmt iilxp. Llg Wrmlyj gkjymk qzmhnj mocjc nykbxp tc qhv nbvwh cgfcgr. Llg Pzoxlwvg wzxacj vgjvimq s ogsnwkb, ks qhv xeyarvyob eclxgl tig zwgqgv axtwvcf tqifwvvyob eclxglj. Bayl ttigmkrq qceva t qarifv nkciyghtg vmmrv fval cxjgwkqoc llch zb bq skcceam y espirtifsfgnzk vghlgl. Jbnbwrvm jbbjd ttutbbaw xjyjm lwkxggj jxasyuy kpx qsqg cumtq jivoiv bl fivqfzd qwgwlzbr: iwcu, wfvyskmqh, uqydmwkie, igb llg lltx rzev nym fcllqx dir zw twvcqv uzmny kpx iwc unrgl qwgtyk. Bagk wcggtx nsvcaiiif aw qlzoblsp nus bxvl. Xjy gzhejeo yekkwhxu ck ebrz xjy bmrugvf MVKNPAXA, xvkkwhxu nym kckynn, rvw azieej bayl xjy nwkbari wfuxq teee lvvfsriyu.
+
+Decrypted plaintext:
+Classical cryptography studies ways to hide a written message before modern computers existed. A cipher turns readable plaintext into ciphertext. The receiver applies a secret key and recovers the original text. A substitution cipher replaces letters, while a transposition cipher keeps the letters and changes their order. The Caesar cipher shifts every letter by one fixed amount. The Vigenere cipher repeats a keyword, so one plaintext letter can become several ciphertext letters. That property makes a single frequency count less effective than it is against a monoalphabetic cipher. Students still practice these systems because the same ideas return in network security: keys, confusion, diffusion, and the rule that the method may be public while the key stays secret. This sample paragraph is original lab text. The program encrypts it with the keyword SECURITY, decrypts the result, and checks that the wording comes back unchanged.
+
+Round trip: PASS
+
+Known vector: ATTACKATDAWN + LEMON = LXFOPVEFRNHR
+Short sample: ATTACK AT DAWN. + LEMON = LXFOPV EF RNHR.
+Compare manually at https://www.dcode.fr/vigenere-cipher
