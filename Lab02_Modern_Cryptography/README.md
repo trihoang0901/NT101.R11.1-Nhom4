@@ -1,6 +1,6 @@
 # Lab 02: Mật mã học hiện đại
 
-Thư mục này chứa phần thực hành Nhiệm vụ 2.1 và 2.2 của Lab 02.
+Thư mục này chứa phần thực hành Nhiệm vụ 2.1, 2.2 và 2.6 của Lab 02.
 
 ## Cấu trúc
 
@@ -8,6 +8,8 @@ Thư mục này chứa phần thực hành Nhiệm vụ 2.1 và 2.2 của Lab 02
 |---|---|
 | `task_2_1_feistel/feistel.py` | Cài đặt vòng Feistel và theo dõi sự lan truyền thay đổi giữa hai bản rõ `0xAB`, `0xAC` |
 | `task_2_2_mode_of_operation/modes.py` | Mã hóa chuỗi lặp bằng AES ở các chế độ ECB, CBC, CFB, OFB, CTR |
+| `task2_6/number_theory.py` | Số nguyên tố (Miller-Rabin, Lucas-Lehmer), ước chung lớn nhất (Euclid) và lũy thừa modulo (bình phương liên tiếp) |
+| `tests/test_task2_6.py` | Test tự động cho nhiệm vụ 2.6 |
 
 ## Chạy chương trình
 
@@ -15,7 +17,11 @@ Thư mục này chứa phần thực hành Nhiệm vụ 2.1 và 2.2 của Lab 02
 pip install pycryptodome
 python task_2_1_feistel/feistel.py
 python task_2_2_mode_of_operation/modes.py
+python task2_6/number_theory.py
+python -m unittest discover -s tests -v
 ```
+
+Nhiệm vụ 2.6 chỉ dùng thư viện chuẩn của Python. `sympy` (`pip install sympy`) là tùy chọn, chỉ dùng trong test 2.6 để đối chiếu độc lập.
 
 ## Nhiệm vụ 2.1: Cấu trúc Feistel và sự lan truyền thay đổi
 
@@ -59,3 +65,52 @@ Nhận xét:
 - ECB và CBC cần độn (padding) khi độ dài không chia hết cho 16 byte. Ở đây 32 byte nên không cần độn. CFB, OFB, CTR không cần độn.
 - IV cố định chỉ dùng cho bài lab. Dùng lại cùng một cặp (khóa, IV) cho nhiều thông điệp sẽ làm lộ quan hệ giữa các bản rõ, nghiêm trọng nhất ở OFB và CTR vì dòng khóa bị lặp lại.
 - Chương trình dùng CFB với `segment_size=128` (CFB-128) và CTR với nonce là 8 byte đầu của IV (8 byte còn lại là bộ đếm khối bắt đầu từ 0).
+
+## Nhiệm vụ 2.6: Số nguyên tố, GCD và lũy thừa modulo
+
+Chạy toàn bộ các yêu cầu bằng `python task2_6/number_theory.py`, hoặc từng phần:
+
+```bash
+python task2_6/number_theory.py random-prime 64
+python task2_6/number_theory.py top-primes
+python task2_6/number_theory.py is-prime 618970019642690137449562111
+python task2_6/number_theory.py gcd 1071 462
+python task2_6/number_theory.py modpow 7 40 19
+```
+
+Số được nhập ở dạng thập phân hoặc hex (`0x...`).
+
+**1. Số nguyên tố**
+
+- Số nguyên tố ngẫu nhiên 8, 16, 64 bit: sinh số ngẫu nhiên bằng `secrets` với bit cao nhất và bit thấp nhất bằng 1, lặp đến khi qua Miller-Rabin. Độ dài bit luôn đúng bằng yêu cầu.
+- Số nguyên tố Mersenne thứ 10: chương trình tự tìm bằng kiểm tra Lucas-Lehmer cho các số mũ nguyên tố tăng dần. Kết quả là các số mũ 2, 3, 5, 7, 13, 17, 19, 31, 61, 89, nên số thứ 10 là `2^89 - 1 = 618970019642690137449562111`.
+- 10 số nguyên tố lớn nhất nhỏ hơn `2^89 - 1` (đi xuống từ `2^89 - 2` và kiểm tra từng số):
+
+| Thứ tự | Số nguyên tố | Cách `2^89 - 1` |
+|---|---|---|
+| 1 | `618970019642690137449562091` | 20 |
+| 2 | `618970019642690137449562081` | 30 |
+| 3 | `618970019642690137449562063` | 48 |
+| 4 | `618970019642690137449562043` | 68 |
+| 5 | `618970019642690137449562013` | 98 |
+| 6 | `618970019642690137449562009` | 102 |
+| 7 | `618970019642690137449561847` | 264 |
+| 8 | `618970019642690137449561791` | 320 |
+| 9 | `618970019642690137449561671` | 440 |
+| 10 | `618970019642690137449561509` | 602 |
+
+- Kiểm tra một số tùy ý: Miller-Rabin với 13 cơ sở nguyên tố đầu tiên. Cách này chính xác tuyệt đối cho n nhỏ hơn `3317044064679887385961981` (khoảng 3.3 x 10^24). Với n lớn hơn, kể cả gần `2^89` (khoảng 6.2 x 10^26), chương trình thêm 20 cơ sở ngẫu nhiên nên kết quả là xác suất, sai số không đáng kể. Dòng kết quả ghi rõ phương pháp là "xác định" hay "xác suất".
+
+**2. GCD**
+
+Thuật toán Euclid lặp, không giới hạn kích thước vì số nguyên Python có độ chính xác tùy ý. Phần demo tạo hai số khoảng 1791 bit có ước chung khoảng 768 bit đã biết trước, rồi kiểm tra kết quả khớp với ước đó và với `math.gcd`.
+
+**3. Lũy thừa modulo**
+
+Bình phương liên tiếp (square-and-multiply), áp dụng tính chất `(a x b) mod n = ((a mod n) x (b mod n)) mod n` nên các số trung gian luôn nhỏ hơn `p`. `7^40 mod 19 = 7`. Số mũ rất lớn cũng chạy được, ví dụ `3^(10^100) mod (2^89 - 1)`.
+
+Nhận xét:
+
+- Số mũ 67 là số nguyên tố nhưng `2^67 - 1` là hợp số (`193707721 x 761838257287`), nên Lucas-Lehmer loại 67 và danh sách số mũ nhảy từ 61 sang 89.
+- Khoảng cách trung bình giữa các số nguyên tố gần `2^89` là `ln(2^89)`, khoảng 61.7. Mười số tìm được nằm trong khoảng 600 số dưới `2^89 - 1`, phù hợp với con số đó.
+- Test tự động đối chiếu với bảng sàng Eratosthenes (dưới 10000), các số Carmichael và strong pseudoprime, `math.gcd`, `pow` có sẵn của Python, và `sympy` cho các số quanh `2^89` (bỏ qua nếu không cài `sympy`).
